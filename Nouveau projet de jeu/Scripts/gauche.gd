@@ -11,6 +11,6 @@ func _ready():
 	pass
 
 func _on_Button_pressed():
-	var goutte = get_node("../Rond")
+	var goutte = get_node("../Goutte/Rond")
 	goutte.move_gauche()
 

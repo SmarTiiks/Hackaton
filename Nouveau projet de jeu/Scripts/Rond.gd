@@ -1,50 +1,16 @@
-extends Sprite
+extends "res://Scripts/Goutte.gd"
 
-var _timer = null
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
-func move_droite():
-	if self.position.x <= 9*(Global.longueur_grille-1):
-		for i in 9:
-			var t = Timer.new()
-			t.set_wait_time(0.01)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			self.translate(Vector2(1, 0))
-			
-func move_gauche():
-	if self.position.x >= 9:
-		for i in 9:
-			var t = Timer.new()
-			t.set_wait_time(0.01)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			self.translate(Vector2(-1, 0))
-			
-func move_bas():
-	if self.position.y <= 9*(Global.hauteur_grille-1):
-		for i in 9:
-			var t = Timer.new()
-			t.set_wait_time(0.01)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			self.translate(Vector2(0, 1))
-			
-func move_haut():
-	if self.position.y >= 9:
-		for i in 9:
-			var t = Timer.new()
-			t.set_wait_time(0.01)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			self.translate(Vector2(0, -1))
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

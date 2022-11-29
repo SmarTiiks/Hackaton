@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://images/rond.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/droite.gd" type="Script" id=2]
 [ext_resource path="res://Carré.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Rond.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Goutte.gd" type="Script" id=4]
 [ext_resource path="res://images/bas.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/bas.gd" type="Script" id=6]
 [ext_resource path="res://images/droite.png" type="Texture" id=7]
@@ -11,8 +11,10 @@
 [ext_resource path="res://Scripts/haut.gd" type="Script" id=9]
 [ext_resource path="res://images/gauche.png" type="Texture" id=10]
 [ext_resource path="res://images/haut.png" type="Texture" id=11]
-[ext_resource path="res://chauffe.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/chauffe.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Rond.gd" type="Script" id=13]
 [ext_resource path="res://images/chauffe.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/chauffage_texte.gd" type="Script" id=15]
 
 [node name="Camera2D" type="Camera2D"]
 
@@ -355,11 +357,6 @@ offset = Vector2( 14, 5 )
 position = Vector2( 81, 0 )
 offset = Vector2( 23, 5 )
 
-[node name="Rond" type="Sprite" parent="."]
-position = Vector2( 5, 5 )
-texture = ExtResource( 1 )
-script = ExtResource( 4 )
-
 [node name="droite" type="Button" parent="."]
 margin_left = 120.0
 margin_top = 23.0
@@ -392,7 +389,7 @@ margin_bottom = 22.0
 icon = ExtResource( 11 )
 script = ExtResource( 9 )
 
-[node name="Button" type="Button" parent="."]
+[node name="chauffage" type="Button" parent="."]
 margin_left = 127.0
 margin_top = 53.0
 margin_right = 139.0
@@ -400,8 +397,33 @@ margin_bottom = 73.0
 icon = ExtResource( 1 )
 script = ExtResource( 12 )
 
+[node name="Goutte" type="Sprite" parent="."]
+script = ExtResource( 4 )
+
+[node name="Rond" type="Sprite" parent="Goutte"]
+position = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+script = ExtResource( 13 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 15 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 44.0
+margin_top = 22.0
+margin_right = 84.0
+margin_bottom = 62.0
+text = "Durée"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+margin_left = 33.0
+margin_top = 37.0
+margin_right = 91.0
+margin_bottom = 61.0
+
 [connection signal="pressed" from="droite" to="droite" method="_on_Button_pressed"]
 [connection signal="pressed" from="bas" to="bas" method="_on_Button_pressed"]
 [connection signal="pressed" from="gauche" to="gauche" method="_on_Button_pressed"]
 [connection signal="pressed" from="haut" to="haut" method="_on_Button_pressed"]
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="chauffage" to="chauffage" method="_on_Button_pressed"]
+[connection signal="pressed" from="chauffage" to="CanvasLayer" method="_on_Button_pressed"]
