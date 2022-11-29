@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Carré.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Carré" parent="." instance=ExtResource( 2 )]
+
+[node name="Carré2" parent="Carré" instance=ExtResource( 2 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré" instance=ExtResource( 2 )]
+offset = Vector2( 23, 5 )

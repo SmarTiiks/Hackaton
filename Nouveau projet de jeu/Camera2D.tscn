@@ -1,0 +1,392 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://rond.png" type="Texture" id=1]
+[ext_resource path="res://droite.gd" type="Script" id=2]
+[ext_resource path="res://Carré.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rond.gd" type="Script" id=4]
+[ext_resource path="res://bas.png" type="Texture" id=5]
+[ext_resource path="res://bas.gd" type="Script" id=6]
+[ext_resource path="res://droite.png" type="Texture" id=7]
+[ext_resource path="res://gauche.gd" type="Script" id=8]
+[ext_resource path="res://haut.gd" type="Script" id=9]
+[ext_resource path="res://gauche.png" type="Texture" id=10]
+[ext_resource path="res://haut.png" type="Texture" id=11]
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="Carré" parent="." instance=ExtResource( 3 )]
+
+[node name="Carré2" parent="Carré" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré12" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 0, 18 )
+
+[node name="Carré2" parent="Carré/Carré12" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré12" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré13" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 0, 27 )
+
+[node name="Carré2" parent="Carré/Carré13" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré13" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré14" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 0, 9 )
+
+[node name="Carré2" parent="Carré/Carré14" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré14" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré15" parent="Carré" instance=ExtResource( 3 )]
+position = Vector2( 0, 36 )
+
+[node name="Carré2" parent="Carré/Carré15" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré15" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré12" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 0, 18 )
+
+[node name="Carré2" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré15/Carré12" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré13" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 0, 27 )
+
+[node name="Carré2" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré15/Carré13" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré14" parent="Carré/Carré15" instance=ExtResource( 3 )]
+position = Vector2( 0, 9 )
+
+[node name="Carré2" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+offset = Vector2( 14, 5 )
+
+[node name="Carré3" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+offset = Vector2( 23, 5 )
+
+[node name="Carré" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+
+[node name="Carré4" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré5" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 27, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré6" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+
+[node name="Carré7" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré8" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 54, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Carré9" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+
+[node name="Carré10" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 14, 5 )
+
+[node name="Carré11" parent="Carré/Carré15/Carré14" instance=ExtResource( 3 )]
+position = Vector2( 81, 0 )
+offset = Vector2( 23, 5 )
+
+[node name="Rond" type="Sprite" parent="."]
+position = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="droite" type="Button" parent="."]
+margin_left = 120.0
+margin_top = 23.0
+margin_right = 147.0
+margin_bottom = 44.0
+icon = ExtResource( 7 )
+script = ExtResource( 2 )
+
+[node name="bas" type="Button" parent="."]
+margin_left = 120.0
+margin_top = 1.0
+margin_right = 147.0
+margin_bottom = 22.0
+icon = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="gauche" type="Button" parent="."]
+margin_left = 148.0
+margin_top = 23.0
+margin_right = 175.0
+margin_bottom = 44.0
+icon = ExtResource( 10 )
+script = ExtResource( 8 )
+
+[node name="haut" type="Button" parent="."]
+margin_left = 148.0
+margin_top = 1.0
+margin_right = 175.0
+margin_bottom = 22.0
+icon = ExtResource( 11 )
+script = ExtResource( 9 )
+
+[connection signal="pressed" from="droite" to="droite" method="_on_Button_pressed"]
+[connection signal="pressed" from="bas" to="bas" method="_on_Button_pressed"]
+[connection signal="pressed" from="gauche" to="gauche" method="_on_Button_pressed"]
+[connection signal="pressed" from="haut" to="haut" method="_on_Button_pressed"]
