@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://images/rond.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/droite.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scripts/Rond.gd" type="Script" id=13]
 [ext_resource path="res://images/chauffe.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/chauffage_texte.gd" type="Script" id=15]
+[ext_resource path="res://New.gd" type="Script" id=16]
 
 [node name="Camera2D" type="Camera2D"]
 
@@ -406,6 +407,7 @@ texture = ExtResource( 1 )
 script = ExtResource( 13 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 15 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
@@ -421,9 +423,18 @@ margin_top = 37.0
 margin_right = 91.0
 margin_bottom = 61.0
 
+[node name="New" type="Button" parent="."]
+margin_left = 168.0
+margin_top = 56.0
+margin_right = 180.0
+margin_bottom = 76.0
+script = ExtResource( 16 )
+
 [connection signal="pressed" from="droite" to="droite" method="_on_Button_pressed"]
 [connection signal="pressed" from="bas" to="bas" method="_on_Button_pressed"]
 [connection signal="pressed" from="gauche" to="gauche" method="_on_Button_pressed"]
 [connection signal="pressed" from="haut" to="haut" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="chauffage" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="CanvasLayer" method="_on_Button_pressed"]
+[connection signal="pressed" from="New" to="Goutte" method="_on_New_pressed"]
+[connection signal="pressed" from="New" to="New" method="_on_New_pressed"]

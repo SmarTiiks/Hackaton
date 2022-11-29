@@ -48,3 +48,12 @@ func move_haut():
 			t.start()
 			yield(t, "timeout")
 			self.translate(Vector2(0, -1))
+
+
+func _on_New_pressed():
+	var Rond = get_child(0)
+	var child = Rond.duplicate()
+	child.name = "ron"
+	add_child(child)
+	child.translate(Vector2(5, 15))
+	
