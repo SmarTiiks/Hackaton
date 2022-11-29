@@ -15,7 +15,7 @@ func _ready():
 func _on_Button_pressed():
 	pos = goutte.position
 	goutte.position = Vector2(86, 50)
-	_timer.set_wait_time(5.0)
+	_timer.set_wait_time(1.0)
 	_timer.set_one_shot(true) # Make sure it loops
 	_timer.start()
 	

@@ -14,15 +14,7 @@ func _ready():
 
 func _on_Button_pressed():
 	var goutte = get_node("../Rond")
-	if goutte.position.y <= 9*(hauteur_grille-1):
-		for i in 9:
-			var t = Timer.new()
-			t.set_wait_time(0.01)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			goutte.translate(Vector2(0, 1))
+	goutte.move_bas()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
