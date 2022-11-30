@@ -11,9 +11,10 @@ func _ready():
 	img.position = Vector2(-198,0)
 
 func posi():
-	var x = Global.goutte.position.x
-	var y = Global.goutte.position.y
-	img.position = Vector2(x - 198 - 5 , y - 5)
+	#var x = Global.goutte.position.x
+	#var y = Global.goutte.position.y
+	#img.position = Vector2(x - 198 - 5 , y - 5)
+	img.global_position = Global.goutte.global_position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	posi()
