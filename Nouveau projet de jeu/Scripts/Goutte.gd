@@ -60,8 +60,10 @@ func to_nine_multiple(i):
 				return j * 9
 	return 0 
 
-
-func _on_New_pressed():
+func generate_new():
+	if get_child_count() > Global.longueur_grille * Global.hauteur_grille * 0.9:
+		print("trop de gouttes")
+		return
 	rng.randomize()
 	var rand_y = rng.randi_range(0, 9*(Global.hauteur_grille-1))
 	var rand_x = rng.randi_range(0, 9*(Global.longueur_grille-1))
@@ -71,6 +73,7 @@ func _on_New_pressed():
 	for i in get_child_count():
 		tmp = get_child(i)
 		if tmp.position == pos:
+			generate_new()
 			return
 		
 	var child = Rond.duplicate()
@@ -78,4 +81,7 @@ func _on_New_pressed():
 	add_child(child)
 	child.modulate = (Color(randf(),randf(),randf(),1.0))
 	child.position = pos
+
+func _on_New_pressed():
+	generate_new()
 	
