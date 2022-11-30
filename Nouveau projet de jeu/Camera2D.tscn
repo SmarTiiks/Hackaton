@@ -15,7 +15,7 @@
 [ext_resource path="res://Scripts/Rond.gd" type="Script" id=13]
 [ext_resource path="res://images/chauffe.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/chauffage_texte.gd" type="Script" id=15]
-[ext_resource path="res://New.gd" type="Script" id=16]
+[ext_resource path="res://Nouvelle_goutte.gd" type="Script" id=16]
 
 [node name="Camera2D" type="Camera2D"]
 
@@ -423,7 +423,7 @@ margin_top = 37.0
 margin_right = 91.0
 margin_bottom = 61.0
 
-[node name="New" type="Button" parent="."]
+[node name="Nouvelle_Goutte" type="Button" parent="."]
 margin_left = 168.0
 margin_top = 56.0
 margin_right = 180.0
@@ -436,5 +436,5 @@ script = ExtResource( 16 )
 [connection signal="pressed" from="haut" to="haut" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="chauffage" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="CanvasLayer" method="_on_Button_pressed"]
-[connection signal="pressed" from="New" to="Goutte" method="_on_New_pressed"]
-[connection signal="pressed" from="New" to="New" method="_on_New_pressed"]
+[connection signal="pressed" from="Nouvelle_Goutte" to="Goutte" method="_on_New_pressed"]
+[connection signal="pressed" from="Nouvelle_Goutte" to="Nouvelle_Goutte" method="_on_New_pressed"]
