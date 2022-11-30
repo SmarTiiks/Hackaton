@@ -60,7 +60,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			Global.goutte.move_bas()
+			Global.goutte.move_bas_no_fuse()
 			
 	else:
 		for i in range(0, yFinalPos/9, 1):
@@ -69,7 +69,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			Global.goutte.move_haut()
+			Global.goutte.move_haut_no_fuse()
 			
 	t.set_wait_time(0.5)
 	t.set_one_shot(true)
@@ -85,7 +85,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			Global.goutte.move_gauche()
+			Global.goutte.move_gauche_no_fuse()
 	else:
 		for i in range(0, xFinalPos/9, 1):
 			t.set_wait_time(0.05)
@@ -93,7 +93,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			Global.goutte.move_droite()
+			Global.goutte.move_droite_no_fuse()
 	return
 
 
