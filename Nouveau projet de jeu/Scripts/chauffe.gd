@@ -1,25 +1,105 @@
 extends Button
 
-var _timer = null
+var timer = null
 onready var goutte = get_node("../Goutte/Rond")
 var pos
 
 func _ready():
-	_timer = Timer.new()
-	add_child(_timer)
+	#modulate = Color(255, 0, 0)
+	timer = Timer.new()
+	#add_child(timer)
 
-	_timer.connect("timeout", self, "_on_Timer_timeout")
+	#_timer.connect("timeout", self, "_on_Timer_timeout")
 	
 	
 
 func execute(time = 1):
 	pos = goutte.position
-	goutte.position = Vector2(86, 50)
-	_timer.set_wait_time(time)
-	_timer.set_one_shot(true) # Make sure it loops
-	_timer.start()
+	var chauffe = get_node("../Chauffe")
+	var posChauffe = chauffe.position
+	moveto(posChauffe)
+	timer.set_wait_time(time + 1.5)
+	timer.set_one_shot(true)
+	self.add_child(timer)
+	timer.start()
+	yield(timer, "timeout")
+	moveto(pos)
+	
+	
+func moveto(posChauffe):
+	#var chauffe = get_node("../Chauffe")
+	#var posChauffe = chauffe.position
+	
+	var goutte = get_node("../Goutte/Rond")
+	var posGoutte = goutte.position
+	
+	var xChauffe = posChauffe.x
+	var yChauffe = posChauffe.y
+	#print(xChauffe, " ", yChauffe)
+	
+	var xGoutte = posGoutte.x
+	var yGoutte = posGoutte.y
+	#print(xGoutte, " ", yGoutte)
+	
+	var xFinalPos = xChauffe - xGoutte
+	var yFinalPos = yChauffe - yGoutte
+	xFinalPos = abs(xFinalPos)
+	yFinalPos = abs(yFinalPos)
+	var t = Timer.new()
+	
+	#print(xFinalPos, " ", yFinalPos )
+	
+	#print("modulo: ", fmod(yFinalPos,9))
+	
+#	for i in range(0, yFinalPos/9, 1):
+#		goutte.move_bas()
+		
+	if yGoutte<yChauffe:
+		for i in range(0, yFinalPos/9, 1):
+			t.set_wait_time(0.05)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			goutte.move_bas()
+			
+	else:
+		for i in range(0, yFinalPos/9, 1):
+			t.set_wait_time(0.05)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			goutte.move_haut()
+			
+	t.set_wait_time(0.5)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+
+
+	if xGoutte>xChauffe:
+		for i in range(0, xFinalPos/9, 1):
+			t.set_wait_time(0.05)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			goutte.move_gauche()
+	else:
+		for i in range(0, xFinalPos/9, 1):
+			t.set_wait_time(0.05)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			goutte.move_droite()
+	return
+
+
 	
 
-func _on_Timer_timeout():
-	goutte.position = pos
+#func _on_Timer_timeout():
+#	moveto(pos)
 	

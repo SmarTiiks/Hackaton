@@ -428,6 +428,7 @@ margin_left = 168.0
 margin_top = 56.0
 margin_right = 180.0
 margin_bottom = 76.0
+text = "N"
 script = ExtResource( 16 )
 
 [connection signal="pressed" from="droite" to="droite" method="_on_Button_pressed"]
