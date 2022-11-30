@@ -1,14 +1,11 @@
 extends Button
 
-var longueur_grille = 12
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func _on_Button_pressed():
-	var goutte = get_node("../Goutte/Rond")
-	goutte.move_droite()
+	Global.goutte.move_droite()
 
 	
 	#if goutte.position.x <= 9*(longueur_grille-1):

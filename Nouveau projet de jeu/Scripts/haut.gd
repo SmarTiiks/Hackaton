@@ -12,8 +12,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	var goutte = get_node("../Goutte/Rond")
-	goutte.move_haut()
+	Global.goutte.move_haut()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

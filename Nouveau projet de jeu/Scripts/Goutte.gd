@@ -5,6 +5,8 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
+	#Global.goutte = get_child(0)
+	#Global.Mere = self
 	pass
 
 func move_droite():
@@ -72,7 +74,8 @@ func _on_New_pressed():
 			return
 		
 	var child = Rond.duplicate()
-	child.name = "ron"
+	#child.name = "ron"
 	add_child(child)
+	child.modulate = (Color(randf(),randf(),randf(),1.0))
 	child.position = pos
 	

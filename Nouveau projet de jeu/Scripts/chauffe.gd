@@ -1,8 +1,8 @@
 extends Button
 
 var timer = null
-onready var goutte = get_node("../Goutte/Rond")
-var pos
+var goutte = Global.goutte
+var pos 
 
 func _ready():
 	#modulate = Color(255, 0, 0)
@@ -14,7 +14,7 @@ func _ready():
 	
 
 func execute(time = 1):
-	pos = goutte.position
+	pos = Global.goutte.position
 	var chauffe = get_node("../Chauffe")
 	var posChauffe = chauffe.position
 	moveto(posChauffe)
@@ -30,8 +30,7 @@ func moveto(posChauffe):
 	#var chauffe = get_node("../Chauffe")
 	#var posChauffe = chauffe.position
 	
-	var goutte = get_node("../Goutte/Rond")
-	var posGoutte = goutte.position
+	var posGoutte = Global.goutte.position
 	
 	var xChauffe = posChauffe.x
 	var yChauffe = posChauffe.y
@@ -61,7 +60,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			goutte.move_bas()
+			Global.goutte.move_bas()
 			
 	else:
 		for i in range(0, yFinalPos/9, 1):
@@ -70,7 +69,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			goutte.move_haut()
+			Global.goutte.move_haut()
 			
 	t.set_wait_time(0.5)
 	t.set_one_shot(true)
@@ -86,7 +85,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			goutte.move_gauche()
+			Global.goutte.move_gauche()
 	else:
 		for i in range(0, xFinalPos/9, 1):
 			t.set_wait_time(0.05)
@@ -94,7 +93,7 @@ func moveto(posChauffe):
 			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
-			goutte.move_droite()
+			Global.goutte.move_droite()
 	return
 
 
