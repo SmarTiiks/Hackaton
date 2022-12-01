@@ -134,7 +134,7 @@ func generate_new(pos, rgb):
 	#child.name = "ron"
 	Global.Mere.add_child(child)
 	#var rgb = Color(randf(),randf(),randf(),1.0)
-	child.modulate = (rgb)
+	child.self_modulate = (rgb)
 	child.visible = true
 	child.global_position = pos
 
@@ -145,39 +145,39 @@ func atach(i):
 	Global.goutte.add_child(i)
 
 func combine(dir):
-	var col
+	var col = Global.goutte.self_modulate
 	for i in Global.Mere.get_children():
 		if dir == "left":
 			if i.global_position.x == Global.goutte.global_position.x - 9 and i.global_position.y == Global.goutte.global_position.y:
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(9, 0)
-				col = i.modulate.blend(Global.goutte.modulate)
-				i.modulate = col
-				Global.goutte.modulate = col
+				#col = i.self_modulate.blend(Global.goutte.modulate)
+				i.self_modulate = col
+				#Global.goutte.self_modulate = col
 				return true
 		if dir == "right":
 			if i.global_position.x == Global.goutte.global_position.x + 9 and i.global_position.y == Global.goutte.global_position.y:
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(-9, 0)
-				col = i.modulate.blend(Global.goutte.modulate)
-				i.modulate = col
-				Global.goutte.modulate = col
+				#col = i.self_modulate.blend(Global.goutte.modulate)
+				i.self_modulate = col
+				#Global.goutte.self_modulate = col
 				return true
 		if dir == "up":
 			if i.global_position.y == Global.goutte.global_position.y - 9 and i.global_position.x == Global.goutte.global_position.x:
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, 9)
-				col = i.modulate.blend(Global.goutte.modulate)
-				i.modulate = col
-				Global.goutte.modulate = col
+				#col = i.self_modulate.blend(Global.goutte.modulate)
+				i.self_modulate = col
+				#Global.goutte.self_modulate = col
 				return true
 		if dir == "down":
 			if i.global_position.y == Global.goutte.global_position.y + 9 and i.global_position.x == Global.goutte.global_position.x:
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, -9)
-				col = i.modulate.blend(Global.goutte.modulate)
-				i.modulate = col
-				Global.goutte.modulate = col
+				#col = i.self_modulate.blend(Global.goutte.modulate)
+				i.self_modulate = col
+				#Global.goutte.self_modulate = col
 				return true
 
 func moveto(posChauffe):
