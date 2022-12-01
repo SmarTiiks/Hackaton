@@ -115,7 +115,7 @@ func to_nine_multiple(i):
 				return j * 9
 	return 0 
 
-func generate_new(pos):
+func generate_new(pos, rgb):
 	#if get_child_count() > Global.longueur_grille * Global.hauteur_grille * 0.9:
 	#	print("trop de gouttes")
 	#	return
@@ -133,7 +133,8 @@ func generate_new(pos):
 	var child = Rond.duplicate()
 	#child.name = "ron"
 	Global.Mere.add_child(child)
-	child.modulate = (Color(randf(),randf(),randf(),1.0))
+	#var rgb = Color(randf(),randf(),randf(),1.0)
+	child.modulate = (rgb)
 	child.visible = true
 	child.global_position = pos
 
@@ -202,9 +203,9 @@ func moveto(posChauffe):
 	#print(xFinalPos, " ", yFinalPos )
 	
 	#print("modulo: ", fmod(yFinalPos,9))
-	
-#	for i in range(0, yFinalPos/9, 1):
-#		goutte.move_bas()
+	for i in Global.Mere.get_children():
+			if i.global_position == posChauffe:
+				return
 		
 	if yGoutte<yChauffe:
 		for i in range(0, yFinalPos/9, 1):

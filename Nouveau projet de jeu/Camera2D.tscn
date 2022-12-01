@@ -519,29 +519,57 @@ margin_bottom = 124.0
 custom_fonts/font = ExtResource( 27 )
 
 [node name="SpawnTo" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 23 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SpawnTo"]
 margin_left = 120.0
-margin_top = 85.0
+margin_top = 69.0
 margin_right = 222.0
-margin_bottom = 125.0
+margin_bottom = 109.0
 custom_fonts/normal_font = ExtResource( 27 )
 text = "X                Y"
 
 [node name="coord_X" type="LineEdit" parent="SpawnTo"]
 margin_left = 109.0
-margin_top = 100.0
+margin_top = 84.0
 margin_right = 167.0
-margin_bottom = 124.0
+margin_bottom = 111.0
 custom_fonts/font = ExtResource( 27 )
 
 [node name="coord_Y" type="LineEdit" parent="SpawnTo"]
 margin_left = 171.0
-margin_top = 100.0
+margin_top = 84.0
 margin_right = 229.0
-margin_bottom = 124.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 27 )
+
+[node name="RGB" type="RichTextLabel" parent="SpawnTo"]
+margin_left = 131.0
+margin_top = 108.0
+margin_right = 290.0
+margin_bottom = 148.0
+custom_fonts/normal_font = ExtResource( 27 )
+text = "R             G              B"
+
+[node name="R" type="LineEdit" parent="SpawnTo"]
+margin_left = 109.0
+margin_top = 123.0
+margin_right = 167.0
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 27 )
+
+[node name="G" type="LineEdit" parent="SpawnTo"]
+margin_left = 235.0
+margin_top = 123.0
+margin_right = 293.0
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 27 )
+
+[node name="B" type="LineEdit" parent="SpawnTo"]
+margin_left = 171.0
+margin_top = 123.0
+margin_right = 229.0
+margin_bottom = 150.0
 custom_fonts/font = ExtResource( 27 )
 
 [node name="Selector_txt" type="CanvasLayer" parent="."]
