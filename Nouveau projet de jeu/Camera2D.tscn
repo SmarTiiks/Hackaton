@@ -430,10 +430,10 @@ icon = ExtResource( 11 )
 script = ExtResource( 9 )
 
 [node name="chauffage" type="Button" parent="."]
-margin_left = 127.0
-margin_top = 53.0
-margin_right = 139.0
-margin_bottom = 73.0
+margin_left = 112.0
+margin_top = 45.0
+margin_right = 196.0
+margin_bottom = 71.0
 custom_fonts/font = ExtResource( 27 )
 text = "Heat"
 icon = ExtResource( 21 )
@@ -459,19 +459,19 @@ margin_bottom = 125.0
 custom_fonts/font = ExtResource( 27 )
 
 [node name="Nouvelle_Goutte" type="Button" parent="."]
-margin_left = 195.0
-margin_top = 53.0
-margin_right = 293.0
-margin_bottom = 79.0
+margin_left = 201.0
+margin_top = 45.0
+margin_right = 299.0
+margin_bottom = 71.0
 custom_fonts/font = ExtResource( 27 )
 text = "New Drop"
 icon = ExtResource( 20 )
 script = ExtResource( 16 )
 
 [node name="Selector" type="Button" parent="."]
-margin_left = 203.0
+margin_left = 201.0
 margin_top = 10.0
-margin_right = 285.0
+margin_right = 299.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 27 )
 text = "Select"
@@ -484,10 +484,10 @@ position = Vector2( -211, 131 )
 texture = ExtResource( 18 )
 
 [node name="Move_to" type="Button" parent="."]
-margin_left = 113.0
+margin_left = 112.0
 margin_top = 10.0
-margin_right = 199.0
-margin_bottom = 33.0
+margin_right = 196.0
+margin_bottom = 36.0
 custom_fonts/font = SubResource( 2 )
 text = "Move To"
 icon = ExtResource( 28 )
