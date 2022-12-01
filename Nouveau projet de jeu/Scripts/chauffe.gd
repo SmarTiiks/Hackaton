@@ -23,6 +23,10 @@ func execute(time = 1):
 	self.add_child(timer)
 	timer.start()
 	yield(timer, "timeout")
+	var col = Global.goutte.self_modulate
+	var red = (col.g + col.b)/2
+	var ncol = Color((col.r+red)/2, col.g/2,col.b/2)
+	Global.goutte.self_modulate = ncol
 	moveto(pos)
 	
 	

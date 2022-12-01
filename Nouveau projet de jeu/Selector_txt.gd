@@ -15,7 +15,7 @@ func _input(event):
 		if event is InputEventKey:
 			if event.pressed and event.scancode == KEY_ENTER:
 				var id = int(get_node("ID").text)
-				if id >= Global.Mere.get_child_count():
+				if id >= Global.Mere.get_child_count() or id <= 0:
 					return
 				Global.goutte = Global.Mere.get_child(id)
 				#print(int(value.text))
