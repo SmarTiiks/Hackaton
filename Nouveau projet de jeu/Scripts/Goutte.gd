@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
+	rng.randomize()
 	#get_node("/root/Node2D/Camera2D/Goutte/Rond").position = Vector2(-11,-11)
 	#position = Vector2(-100,-100)
 	#visible = false
@@ -12,7 +13,6 @@ func _ready():
 	#Global.goutte = get_child(1)
 	#Global.goutte = get_child(0)
 	#Global.Mere = self
-	pass
 
 func move_droite():
 	if self.position.x <= 9*(Global.longueur_grille-1):
@@ -115,35 +115,40 @@ func to_nine_multiple(i):
 				return j * 9
 	return 0 
 
-func generate_new():
-	if get_child_count() > Global.longueur_grille * Global.hauteur_grille * 0.9:
-		print("trop de gouttes")
-		return
-	rng.randomize()
-	var rand_y = rng.randi_range(0, 9*(Global.hauteur_grille-1))
-	var rand_x = rng.randi_range(0, 9*(Global.longueur_grille-1))
-	var pos = Vector2(to_nine_multiple(rand_x) + 5, to_nine_multiple(rand_y) + 5)
-	var Rond = get_child(0)
+func generate_new(pos):
+	#if get_child_count() > Global.longueur_grille * Global.hauteur_grille * 0.9:
+	#	print("trop de gouttes")
+	#	return
+	#rng.randomize()
+	#var rand_y = rng.randi_range(0, 9*(Global.hauteur_grille-1))
+	#var rand_x = rng.randi_range(0, 9*(Global.longueur_grille-1))
+	#var pos = Vector2(rand_x*9 + 5, rand_y*9 + 5)
+	var Rond = Global.Mere.get_child(0)
 	var tmp
-	for i in get_child_count():
-		tmp = get_child(i)
-		if tmp.position == pos:
-			generate_new()
+	for i in Global.Mere.get_child_count():
+		tmp = Global.Mere.get_child(i)
+		if tmp.global_position == pos:
+			#generate_new()
 			return
 	var child = Rond.duplicate()
 	#child.name = "ron"
-	add_child(child)
+	Global.Mere.add_child(child)
 	child.modulate = (Color(randf(),randf(),randf(),1.0))
 	child.visible = true
-	child.position = pos
+	child.global_position = pos
+
+func atach(i):
+	i.get_child(0).visible = false
+	#i.remove_child(0)
+	Global.Mere.remove_child(i)
+	Global.goutte.add_child(i)
 
 func combine(dir):
 	var col
 	for i in Global.Mere.get_children():
 		if dir == "left":
 			if i.global_position.x == Global.goutte.global_position.x - 9 and i.global_position.y == Global.goutte.global_position.y:
-				Global.Mere.remove_child(i)
-				Global.goutte.add_child(i)
+				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(9, 0)
 				col = i.modulate.blend(Global.goutte.modulate)
 				i.modulate = col
@@ -151,8 +156,7 @@ func combine(dir):
 				return true
 		if dir == "right":
 			if i.global_position.x == Global.goutte.global_position.x + 9 and i.global_position.y == Global.goutte.global_position.y:
-				Global.Mere.remove_child(i)
-				Global.goutte.add_child(i)
+				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(-9, 0)
 				col = i.modulate.blend(Global.goutte.modulate)
 				i.modulate = col
@@ -160,8 +164,7 @@ func combine(dir):
 				return true
 		if dir == "up":
 			if i.global_position.y == Global.goutte.global_position.y - 9 and i.global_position.x == Global.goutte.global_position.x:
-				Global.Mere.remove_child(i)
-				Global.goutte.add_child(i)
+				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, 9)
 				col = i.modulate.blend(Global.goutte.modulate)
 				i.modulate = col
@@ -169,14 +172,83 @@ func combine(dir):
 				return true
 		if dir == "down":
 			if i.global_position.y == Global.goutte.global_position.y + 9 and i.global_position.x == Global.goutte.global_position.x:
-				Global.Mere.remove_child(i)
-				Global.goutte.add_child(i)
+				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, -9)
 				col = i.modulate.blend(Global.goutte.modulate)
 				i.modulate = col
 				Global.goutte.modulate = col
 				return true
 
-func _on_New_pressed():
-	generate_new()
+func moveto(posChauffe):
+	#var chauffe = get_node("../Chauffe")
+	#var posChauffe = chauffe.position
+	
+	var posGoutte = Global.goutte.position
+	
+	var xChauffe = posChauffe.x
+	var yChauffe = posChauffe.y
+	#print(xChauffe, " ", yChauffe)
+	
+	var xGoutte = posGoutte.x
+	var yGoutte = posGoutte.y
+	#print(xGoutte, " ", yGoutte)
+	
+	var xFinalPos = xChauffe - xGoutte
+	var yFinalPos = yChauffe - yGoutte
+	xFinalPos = abs(xFinalPos)
+	yFinalPos = abs(yFinalPos)
+	var t = Timer.new()
+	
+	#print(xFinalPos, " ", yFinalPos )
+	
+	#print("modulo: ", fmod(yFinalPos,9))
+	
+#	for i in range(0, yFinalPos/9, 1):
+#		goutte.move_bas()
+		
+	if yGoutte<yChauffe:
+		for i in range(0, yFinalPos/9, 1):
+			t.set_wait_time(0.07)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			Global.goutte.move_bas_no_fuse()
+			
+	else:
+		for i in range(0, yFinalPos/9, 1):
+			t.set_wait_time(0.07)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			Global.goutte.move_haut_no_fuse()
+			
+	t.set_wait_time(0.7)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+
+
+	if xGoutte>xChauffe:
+		for i in range(0, xFinalPos/9, 1):
+			t.set_wait_time(0.07)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			Global.goutte.move_gauche_no_fuse()
+	else:
+		for i in range(0, xFinalPos/9, 1):
+			t.set_wait_time(0.07)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			Global.goutte.move_droite_no_fuse()
+	return
+
+#func _on_New_pressed():
+#	generate_new()
 	

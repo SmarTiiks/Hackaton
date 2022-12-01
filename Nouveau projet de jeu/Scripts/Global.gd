@@ -7,7 +7,7 @@ var Mere
 
 func _ready():
 	Mere = get_node("/root/Camera2D/Goutte")
-	print(Mere.get_child_count())
+	#print(Mere.get_child_count())
 	goutte = get_node("/root/Camera2D/Goutte/Rond")
 	 # Replace with function body.
 

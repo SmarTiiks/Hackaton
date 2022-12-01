@@ -21,12 +21,12 @@ func _process(delta):
 	posi()
 
 
-func _on_Selector_pressed():
-	var maximum = Global.Mere.get_child_count()
-	print (maximum)
-	index = index + 1
-	if index + 1 > maximum:
-		index = 1
-	Global.goutte = Global.Mere.get_child(index)
-	posi()
+#func _on_Selector_pressed():
+#	var maximum = Global.Mere.get_child_count()
+#	print (maximum)
+#	index = index + 1
+#	if index + 1 > maximum:
+#		index = 1
+#	Global.goutte = Global.Mere.get_child(index)
+#	posi()
 	

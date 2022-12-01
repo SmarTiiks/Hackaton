@@ -1,6 +1,6 @@
-extends "res://Scripts/Goutte.gd"
+extends Sprite
 
-var id
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,8 +8,9 @@ var id
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = Vector2(-11,-11)
-	#Global.goutte = self
+	global_position = Vector2(0+5,0+5)
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
