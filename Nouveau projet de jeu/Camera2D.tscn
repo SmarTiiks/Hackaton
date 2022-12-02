@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://images/selection.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/droite.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://genopole.png" type="Texture" id=29]
 [ext_resource path="res://Genopole.gd" type="Script" id=30]
 [ext_resource path="res://Camera2D.gd" type="Script" id=31]
+[ext_resource path="res://Move_to_button.gd" type="Script" id=32]
 
 [sub_resource type="DynamicFont" id=1]
 size = 9
@@ -496,6 +497,7 @@ margin_bottom = 36.0
 custom_fonts/font = SubResource( 2 )
 text = "Move To"
 icon = ExtResource( 28 )
+script = ExtResource( 32 )
 
 [node name="MoveTo" type="CanvasLayer" parent="."]
 script = ExtResource( 22 )
@@ -602,6 +604,7 @@ enabled = true
 cast_to = Vector2( 0, 9 )
 
 [node name="Genopole" type="Sprite" parent="."]
+visible = false
 position = Vector2( 149.875, 75.625 )
 scale = Vector2( 1.07616, 0.832873 )
 texture = ExtResource( 29 )
@@ -613,6 +616,9 @@ script = ExtResource( 30 )
 [connection signal="pressed" from="haut" to="haut" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="chauffage" method="_on_Button_pressed"]
 [connection signal="pressed" from="chauffage" to="Chauffe_txt" method="_on_Button_pressed"]
+[connection signal="pressed" from="Nouvelle_Goutte" to="Nouvelle_Goutte" method="_on_Nouvelle_Goutte_pressed"]
 [connection signal="pressed" from="Nouvelle_Goutte" to="SpawnTo" method="_on_Nouvelle_Goutte_pressed"]
+[connection signal="pressed" from="Selector" to="Selector" method="_on_Selector_pressed"]
 [connection signal="pressed" from="Selector" to="Selector_txt" method="_on_Selector_pressed"]
+[connection signal="pressed" from="Move_to" to="Move_to" method="_on_Move_to_pressed"]
 [connection signal="pressed" from="Move_to" to="MoveTo" method="_on_Move_to_pressed"]

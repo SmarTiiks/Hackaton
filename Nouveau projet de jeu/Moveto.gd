@@ -1,14 +1,8 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hide() # Replace with function body.
+	hide()
 
 func _input(event):
 	if visible:
@@ -21,18 +15,11 @@ func _input(event):
 					return
 				pos.x = pos.x*9 +5
 				pos.y = pos.y*9 +5
-				#print(pos)
 				Global.goutte.moveto(pos)
-				#print(int(value.text))
-				#get_node("../chauffage").execute(int(value.text))
 				self.visible = false
 				return
 			if event.pressed and event.scancode == KEY_ESCAPE:
 				self.visible = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Move_to_pressed():
 	self.visible = true
