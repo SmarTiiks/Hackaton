@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	Global.goutte.move_bas()
+	Global.goutte.combine("down")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

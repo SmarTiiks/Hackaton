@@ -21,7 +21,7 @@ func _input(event):
 					return
 				pos.x = pos.x*9 +5
 				pos.y = pos.y*9 +5
-				print(pos)
+				#print(pos)
 				Global.goutte.moveto(pos)
 				#print(int(value.text))
 				#get_node("../chauffage").execute(int(value.text))

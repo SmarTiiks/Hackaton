@@ -16,15 +16,15 @@ func _ready():
 
 func move_droite():
 	if self.position.x <= 9*(Global.longueur_grille-1):
-		if not combine("right"):
-			for i in 9:
-				var t = Timer.new()
-				t.set_wait_time(0.01)
-				t.set_one_shot(true)
-				self.add_child(t)
-				t.start()
-				yield(t, "timeout")
-				self.translate(Vector2(1, 0))
+		self.combine("right")
+		for i in 9:
+			var t = Timer.new()
+			t.set_wait_time(0.01)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			self.translate(Vector2(1, 0))
 		
 func move_droite_no_fuse():
 	if self.position.x <= 9*(Global.longueur_grille-1):
@@ -40,15 +40,15 @@ func move_droite_no_fuse():
 			
 func move_gauche():
 	if self.position.x >= 9:
-		if not combine("left"):
-			for i in 9:
-				var t = Timer.new()
-				t.set_wait_time(0.01)
-				t.set_one_shot(true)
-				self.add_child(t)
-				t.start()
-				yield(t, "timeout")
-				self.translate(Vector2(-1, 0))
+		self.combine("left")
+		for i in 9:
+			var t = Timer.new()
+			t.set_wait_time(0.01)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			self.translate(Vector2(-1, 0))
 		
 func move_gauche_no_fuse():
 	if self.position.x >= 9:
@@ -64,15 +64,15 @@ func move_gauche_no_fuse():
 			
 func move_bas():
 	if self.position.y <= 9*(Global.hauteur_grille-1):
-		if not combine("down"):
-			for i in 9:
-				var t = Timer.new()
-				t.set_wait_time(0.01)
-				t.set_one_shot(true)
-				self.add_child(t)
-				t.start()
-				yield(t, "timeout")
-				self.translate(Vector2(0, 1))
+		self.combine("down")
+		for i in 9:
+			var t = Timer.new()
+			t.set_wait_time(0.01)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			self.translate(Vector2(0, 1))
 			
 func move_bas_no_fuse():
 	if self.position.y <= 9*(Global.hauteur_grille-1):
@@ -87,15 +87,15 @@ func move_bas_no_fuse():
 			
 func move_haut():
 	if self.position.y >= 9:
-		if not combine("up"):
-			for i in 9:
-				var t = Timer.new()
-				t.set_wait_time(0.01)
-				t.set_one_shot(true)
-				self.add_child(t)
-				t.start()
-				yield(t, "timeout")
-				self.translate(Vector2(0, -1))
+		self.combine("up")
+		for i in 9:
+			var t = Timer.new()
+			t.set_wait_time(0.01)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			self.translate(Vector2(0, -1))
 
 func move_haut_no_fuse():
 	if self.position.y >= 9:
@@ -190,72 +190,72 @@ func combine(dir):
 func moveto(posChauffe):
 	#var chauffe = get_node("../Chauffe")
 	#var posChauffe = chauffe.position
-	
-	var posGoutte = Global.goutte.position
-	
-	var xChauffe = posChauffe.x
-	var yChauffe = posChauffe.y
-	#print(xChauffe, " ", yChauffe)
-	
-	var xGoutte = posGoutte.x
-	var yGoutte = posGoutte.y
-	#print(xGoutte, " ", yGoutte)
-	
-	var xFinalPos = xChauffe - xGoutte
-	var yFinalPos = yChauffe - yGoutte
-	xFinalPos = abs(xFinalPos)
-	yFinalPos = abs(yFinalPos)
-	var t = Timer.new()
-	
-	#print(xFinalPos, " ", yFinalPos )
-	
-	#print("modulo: ", fmod(yFinalPos,9))
-	for i in Global.Mere.get_children():
-			if i.global_position == posChauffe:
-				return
+	#while(Global.goutte.position != posChauffe):
+		var posGoutte = Global.goutte.position
 		
-	if yGoutte<yChauffe:
-		for i in range(0, yFinalPos/9, 1):
-			t.set_wait_time(0.07)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			Global.goutte.move_bas_no_fuse()
+		var xChauffe = posChauffe.x
+		var yChauffe = posChauffe.y
+		#print(xChauffe, " ", yChauffe)
+		
+		var xGoutte = posGoutte.x
+		var yGoutte = posGoutte.y
+		#print(xGoutte, " ", yGoutte)
+		
+		var xFinalPos = xChauffe - xGoutte
+		var yFinalPos = yChauffe - yGoutte
+		xFinalPos = abs(xFinalPos)
+		yFinalPos = abs(yFinalPos)
+		var t = Timer.new()
+		
+		#print(xFinalPos, " ", yFinalPos )
+		
+		#print("modulo: ", fmod(yFinalPos,9))
+		for i in Global.Mere.get_children():
+				if i.global_position == posChauffe:
+					return
 			
-	else:
-		for i in range(0, yFinalPos/9, 1):
-			t.set_wait_time(0.07)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			Global.goutte.move_haut_no_fuse()
-			
-	t.set_wait_time(0.7)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
+		if yGoutte<yChauffe:
+			for i in range(0, yFinalPos/9, 1):
+				t.set_wait_time(0.15)
+				t.set_one_shot(true)
+				self.add_child(t)
+				t.start()
+				yield(t, "timeout")
+				Global.goutte.move_bas()
+				
+		else:
+			for i in range(0, yFinalPos/9, 1):
+				t.set_wait_time(0.15)
+				t.set_one_shot(true)
+				self.add_child(t)
+				t.start()
+				yield(t, "timeout")
+				Global.goutte.move_haut()
+				
+		t.set_wait_time(0.7)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
 
 
-	if xGoutte>xChauffe:
-		for i in range(0, xFinalPos/9, 1):
-			t.set_wait_time(0.07)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			Global.goutte.move_gauche_no_fuse()
-	else:
-		for i in range(0, xFinalPos/9, 1):
-			t.set_wait_time(0.07)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
-			Global.goutte.move_droite_no_fuse()
-	return
+		if xGoutte>xChauffe:
+			for i in range(0, xFinalPos/9, 1):
+				t.set_wait_time(0.15)
+				t.set_one_shot(true)
+				self.add_child(t)
+				t.start()
+				yield(t, "timeout")
+				Global.goutte.move_gauche()
+		else:
+			for i in range(0, xFinalPos/9, 1):
+				t.set_wait_time(0.15)
+				t.set_one_shot(true)
+				self.add_child(t)
+				t.start()
+				yield(t, "timeout")
+				Global.goutte.move_droite()
+		emit_signal("completed")
 
 #func _on_New_pressed():
 #	generate_new()

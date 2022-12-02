@@ -1,4 +1,4 @@
-extends Button
+extends Camera2D
 
 
 # Declare member variables here. Examples:
@@ -8,12 +8,7 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = true
-	#pass # Replace with function body
-
-
-func _on_Button_pressed():
-	Global.goutte.combine("up")
+	OS.window_maximized = true # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

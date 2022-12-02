@@ -12,5 +12,5 @@ func _ready():
 	#pass # Replace with function body
 
 func _on_Button_pressed():
-	Global.goutte.move_gauche()
+	Global.goutte.combine("left")
 

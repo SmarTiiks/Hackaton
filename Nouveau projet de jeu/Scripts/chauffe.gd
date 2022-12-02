@@ -17,8 +17,9 @@ func execute(time = 1):
 	pos = Global.goutte.position
 	var chauffe = get_node("../Chauffe")
 	var posChauffe = chauffe.position
-	moveto(posChauffe)
-	timer.set_wait_time(time + 1.5)
+	
+	yield(Global.goutte.moveto(posChauffe), "completed")
+	timer.set_wait_time(time)
 	timer.set_one_shot(true)
 	self.add_child(timer)
 	timer.start()
@@ -27,7 +28,7 @@ func execute(time = 1):
 	var red = (col.g + col.b)/2
 	var ncol = Color((col.r+red)/2, col.g/2,col.b/2)
 	Global.goutte.self_modulate = ncol
-	moveto(pos)
+	Global.goutte.moveto(pos)
 	
 	
 func moveto(posChauffe):

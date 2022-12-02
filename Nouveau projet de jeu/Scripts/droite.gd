@@ -6,7 +6,7 @@ func _ready():
 	#pass # Replace with function body
 
 func _on_Button_pressed():
-	Global.goutte.move_droite()
+	Global.goutte.combine("right")
 
 	
 	#if goutte.position.x <= 9*(longueur_grille-1):
