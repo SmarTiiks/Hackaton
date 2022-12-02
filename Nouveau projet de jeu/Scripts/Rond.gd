@@ -12,5 +12,8 @@ func _ready():
 	#Global.goutte = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	var papa = get_parent()
+	if papa != Global.Mere:
+		self_modulate = papa.self_modulate
 #	pass

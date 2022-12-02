@@ -494,7 +494,6 @@ text = "Move To"
 icon = ExtResource( 28 )
 
 [node name="MoveTo" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 22 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MoveTo"]
