@@ -143,6 +143,11 @@ func atach(i):
 	#i.remove_child(0)
 	Global.Mere.remove_child(i)
 	Global.goutte.add_child(i)
+	
+func merg(node):
+	var col = Global.goutte.self_modulate
+	var bis = node.self_modulate
+	Global.goutte.self_modulate = Color((col.r + bis.r)/2, (col.g + bis.g)/2,(col.b + bis.b)/2)
 
 func combine(dir):
 	var col = Global.goutte.self_modulate
@@ -152,7 +157,8 @@ func combine(dir):
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(9, 0)
 				#col = i.self_modulate.blend(Global.goutte.modulate)
-				i.self_modulate = col
+				merg(i)
+				#i.self_modulate = col
 				#Global.goutte.self_modulate = col
 				return true
 		if dir == "right":
@@ -160,7 +166,8 @@ func combine(dir):
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(-9, 0)
 				#col = i.self_modulate.blend(Global.goutte.modulate)
-				i.self_modulate = col
+				merg(i)
+				#i.self_modulate = col
 				#Global.goutte.self_modulate = col
 				return true
 		if dir == "up":
@@ -168,7 +175,7 @@ func combine(dir):
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, 9)
 				#col = i.self_modulate.blend(Global.goutte.modulate)
-				i.self_modulate = col
+				merg(i)
 				#Global.goutte.self_modulate = col
 				return true
 		if dir == "down":
@@ -176,7 +183,7 @@ func combine(dir):
 				atach(i)
 				i.global_position = Global.goutte.global_position - Vector2(0, -9)
 				#col = i.self_modulate.blend(Global.goutte.modulate)
-				i.self_modulate = col
+				merg(i)
 				#Global.goutte.self_modulate = col
 				return true
 
